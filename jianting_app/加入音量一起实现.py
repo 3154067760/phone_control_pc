@@ -19,6 +19,14 @@ def volume_up():
         time.sleep(0.1)
     return "🔊 音量已增大"
 
+
+# 切歌：下一首 (Ctrl + Alt + 右箭头)
+def change_music():
+    # 同时按下 Ctrl + Alt + 右方向键
+    pyautogui.hotkey('ctrl', 'alt', 'right')
+    time.sleep(0.2)
+    return "🎵 已切换到下一首歌"
+
 # 减小音量
 def volume_down():
     for i in range(5):
@@ -39,6 +47,7 @@ def get_ai_command(user_input):
     prompt = f"""
     你是一个命令识别器。
     只能识别以下操作：
+    切换音乐
     打开/关闭：pycharm, wechat, doubao, qq, soda
     音量：增大, 减小, 静音
     关机
@@ -64,6 +73,7 @@ def get_ai_command(user_input):
     volume_down
     volume_mute
     shutdown
+    change_music
     unknown
 
     用户输入：{user_input}
@@ -208,6 +218,8 @@ def command():
         if cmd == "volume_mute":
             result.append(volume_mute())
             continue
+        if cmd == "change_music":
+            result.append(change_music())
 
         # 关机
         if cmd == "shutdown":
