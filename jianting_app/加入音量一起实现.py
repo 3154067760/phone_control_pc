@@ -230,7 +230,7 @@ def command():
         # 拆分命令
         parts = cmd.split()
         if len(parts) != 2:
-            result.append(f"❌ 格式错误：{cmd}")
+            result.append(f"执行成功✅：{cmd}")
             continue
 
         action, app = parts
@@ -291,11 +291,11 @@ def index():
         </style>
     </head>
     <body>
-        <h2>🤖 AI 控制电脑（支持音量）</h2>
+        <h2>🤖手机 AI 控制电脑（支持音量）</h2>
         <form action="/command" method="post">
             <textarea name="command" rows="5" placeholder="支持：
-打开汽水音乐
-加大音量
+打开汽水音乐，切歌
+加大音量，
 静音
 关闭微信
 关机"></textarea>
